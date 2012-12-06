@@ -1,0 +1,26 @@
+#!/bin/sh
+
+NAME=rsync
+DESC="Rsync daemon"
+
+test -x /usr/bin/rsync || exit 0
+
+case "$1" in
+  start)
+        echo -n "Starting $DESC: $NAME"
+        /usr/bin/rsync --daemon
+        echo "."
+        ;;
+  stop)
+        echo -n "Stopping $DESC: $NAME"
+        killall rsync
+        echo "."
+        ;;
+  *)
+        N=/etc/init.d/$NAME
+        echo "Usage: $N {start|stop}" >&2
+        exit 1
+        ;;
+esac
+
+exit 0

@@ -1,0 +1,14 @@
+diff -Naur w3c-libwww-5.4.0_orig/config/ltconfig w3c-libwww-5.4.0/config/ltconfig
+--- w3c-libwww-5.4.0_orig/config/ltconfig	2002-06-06 16:59:37.000000000 +0200
++++ w3c-libwww-5.4.0/config/ltconfig	2010-03-04 12:28:34.829388736 +0100
+@@ -1226,8 +1226,8 @@
+ 
+   *)
+     if $LD --help 2>&1 | egrep ': supported targets:.* elf' > /dev/null; then
+-      archive_cmds='$CC -shared $libobjs $deplibs $linkopts ${wl}-soname $wl$soname -o $lib'
+-      archive_expsym_cmds='$CC -shared $libobjs $deplibs $linkopts ${wl}-soname $wl$soname ${wl}-retain-symbols-file $wl$export_symbols -o $lib'
++      archive_cmds='$CC -shared $libobjs $deplibs ${wl}--hash-style=gnu $linkopts ${wl}-soname $wl$soname -o $lib'
++      archive_expsym_cmds='$CC -shared $libobjs $deplibs $linkopts ${wl}--hash-style=gnu ${wl}-soname $wl$soname ${wl}-retain-symbols-file $wl$export_symbols -o $lib'
+     else
+       ld_shlibs=no
+     fi

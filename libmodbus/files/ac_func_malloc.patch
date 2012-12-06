@@ -1,0 +1,12 @@
+diff -ru libmodbus-2.0.3/configure.ac libmodbus-2.0.3-work/configure.ac
+--- libmodbus-2.0.3/configure.ac	2010-10-28 08:52:46.000000000 +0200
++++ libmodbus-2.0.3-work/configure.ac	2011-05-26 17:46:38.382815354 +0200
+@@ -22,7 +22,7 @@
+ AC_HEADER_TIME
+ 
+ # Checks for library functions.
+-AC_FUNC_MALLOC
++#AC_FUNC_MALLOC
+ AC_FUNC_SELECT_ARGTYPES
+ AC_CHECK_FUNCS([inet_ntoa memset select socket])
+ 

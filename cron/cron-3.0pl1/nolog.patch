@@ -1,0 +1,16 @@
+diff -Naur cron3.0pl1.orig/pathnames.h cron3.0pl1/pathnames.h
+--- cron3.0pl1.orig/pathnames.h	1994-03-01 03:39:19.000000000 +0100
++++ cron3.0pl1/pathnames.h	2011-11-16 15:58:57.883518567 +0100
+@@ -47,9 +47,9 @@
+ 			 * LOG_FILE or SYSLOG is defined, we don't log.  If
+ 			 * both are defined, we log both ways.
+ 			 */
+-#define	ALLOW_FILE	"allow"		/*-*/
+-#define DENY_FILE	"deny"		/*-*/
+-#define LOG_FILE	"log"		/*-*/
++/* #define	ALLOW_FILE	"allow"		/*-*/
++/* #define DENY_FILE	"deny"		/*-*/
++/* #define LOG_FILE	"log"		/*-*/
+ 
+ 			/* where should the daemon stick its PID?
+ 			 */

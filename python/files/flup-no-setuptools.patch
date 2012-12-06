@@ -1,0 +1,18 @@
+--- flup-1.0.2/setup.py-orig	2012-06-04 20:54:40.619783868 +0200
++++ flup-1.0.2/setup.py	2012-06-04 20:55:15.075782674 +0200
+@@ -1,13 +1,9 @@
+-# Bootstrap setuptools
+-from ez_setup import use_setuptools
+-use_setuptools()
++from distutils.core import setup
+ 
+-from setuptools import setup, find_packages
+ setup(
+     name = 'flup',
+     version = '1.0.2',
+-    packages = find_packages(),
+-    zip_safe = True,
++    packages = ['flup', 'flup.client', 'flup.server'],
+     
+     entry_points = """
+     [paste.server_runner]

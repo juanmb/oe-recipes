@@ -1,0 +1,28 @@
+diff -Naur redis-2.4.3-old/src/Makefile redis-2.4.3/src/Makefile
+--- redis-2.4.3-old/src/Makefile	2011-11-21 18:47:39.000000000 +0100
++++ redis-2.4.3/src/Makefile	2011-11-29 12:08:41.030544040 +0100
+@@ -26,11 +26,11 @@
+ 
+ ifeq ($(uname_S),SunOS)
+   CFLAGS?=-std=c99 -pedantic $(OPTIMIZATION) -Wall -W -D__EXTENSIONS__ -D_XPG6
+-  CCLINK?=-ldl -lnsl -lsocket -lm -lpthread
++  CCLINK?=-ldl -lnsl -lsocket -lm -lpthread $(LDFLAGS)
+   DEBUG?=-g -ggdb
+ else
+   CFLAGS?=-std=c99 -pedantic $(OPTIMIZATION) -Wall -W $(ARCH) $(PROF)
+-  CCLINK?=-lm -pthread
++  CCLINK?=-lm -pthread $(LDFLAGS)
+   DEBUG?=-g -rdynamic -ggdb
+ endif
+ 
+@@ -54,8 +54,8 @@
+ 
+ CCOPT= $(CFLAGS) $(ARCH) $(PROF)
+ 
+-PREFIX= /usr/local
+-INSTALL_BIN= $(PREFIX)/bin
++#PREFIX= /usr/local
++INSTALL_BIN= $(DESTDIR)/bin
+ INSTALL= cp -p
+ 
+ OBJ = adlist.o ae.o anet.o dict.o redis.o sds.o zmalloc.o lzf_c.o lzf_d.o pqsort.o zipmap.o sha1.o ziplist.o release.o networking.o util.o object.o db.o replication.o rdb.o t_string.o t_list.o t_set.o t_zset.o t_hash.o config.o aof.o vm.o pubsub.o multi.o debug.o sort.o intset.o syncio.o slowlog.o bio.o

@@ -1,0 +1,13 @@
+diff -rupN ujson-1.23/setup.py ujson-1.23-patched//setup.py
+--- ujson-1.23/setup.py	2012-10-01 10:25:32.000000000 +0200
++++ ujson-1.23-patched//setup.py	2012-12-06 16:46:17.831732416 +0100
+@@ -30,7 +30,8 @@ module1 = Extension('ujson',
+                                './python/JSONtoObj.c', 
+                                './lib/ultrajsonenc.c', 
+                                './lib/ultrajsondec.c'],
+-                    include_dirs = ['./python', './lib'])
++                    include_dirs = ['./python', './lib'],
++                    extra_compile_args = ['-D_GNU_SOURCE'])
+ 
+ def get_version():
+     filename = os.path.join(os.path.dirname(__file__), './python/version.h')

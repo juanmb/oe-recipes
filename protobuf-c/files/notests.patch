@@ -1,0 +1,23 @@
+Index: configure.ac
+===================================================================
+--- protobuf-c/configure.ac	(revisión: 263)
++++ protobuf-c/configure.ac	(copia de trabajo)
+@@ -114,6 +114,6 @@
+ fi
+ AC_DEFINE_UNQUOTED(IS_LITTLE_ENDIAN, $is_little_endian)
+ 
+-AC_OUTPUT(Makefile src/Makefile src/test/Makefile pkgwriteinfo libprotobuf-c.pc)
++AC_OUTPUT(Makefile src/Makefile pkgwriteinfo libprotobuf-c.pc)
+ 
+ 
+Index: src/Makefile.am
+===================================================================
+--- protobuf-c/src/Makefile.am	(revisión: 263)
++++ protobuf-c/src/Makefile.am	(copia de trabajo)
+@@ -1,5 +1,5 @@
+ if BUILD_PROTOC_C
+-SUBDIRS = . test
++SUBDIRS = .
+ bin_PROGRAMS = protoc-c
+ protoc_c_SOURCES = \
+ google/protobuf/compiler/c/c_service.cc \

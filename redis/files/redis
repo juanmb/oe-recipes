@@ -1,0 +1,42 @@
+#! /bin/sh
+#
+#	Written by Miquel van Smoorenburg <miquels@cistron.nl>
+#	Modified for Debian GNU/Linux
+#	by Ian Murdock <imurdock@gnu.ai.mit.edu>
+#       Modified for Redis by Juan Menendez <juanmb@gmail.com>
+
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+DAEMON=/bin/redis-server 
+OPTIONS=/etc/redis.conf
+NAME=redis-server
+DESC="key-value database"
+
+test -x $DAEMON || exit 0
+
+set -e
+
+case "$1" in
+  start)
+	echo -n "Starting $DESC: $NAME"
+	start-stop-daemon --start --quiet --exec $DAEMON $OPTIONS
+	echo "."
+	;;
+  stop)
+	echo -n "Stopping $DESC: $NAME"
+	start-stop-daemon --stop --quiet -n $NAME
+	echo "."
+	;;
+  restart)
+	echo -n "Restarting $DESC: $NAME"
+	start-stop-daemon --stop --quiet -n $NAME
+	start-stop-daemon --start --quiet --exec $DAEMON $OPTIONS
+	echo "done."
+        ;;
+  *)
+	N=/etc/init.d/$NAME
+	echo "Usage: $N {start|stop|restart}" >&2
+	exit 1
+	;;
+esac
+
+exit 0

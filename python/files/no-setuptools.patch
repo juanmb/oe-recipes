@@ -1,0 +1,14 @@
+--- redis-2.4.23/setup.py-orig	2012-06-04 19:22:39.878377787 +0200
++++ redis-2.4.23/setup.py	2012-06-04 19:22:51.674377775 +0200
+@@ -30,10 +30,7 @@ sdict = {
+         'Programming Language :: Python'],
+ }
+ 
+-try:
+-    from setuptools import setup
+-except ImportError:
+-    from distutils.core import setup
++from distutils.core import setup
+ 
+ setup(**sdict)
+

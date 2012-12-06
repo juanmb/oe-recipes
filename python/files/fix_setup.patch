@@ -1,0 +1,24 @@
+diff -Naur PyPubSub-3.1.1b1/setup.py PyPubSub-3.1.1b1_patched/setup.py
+--- PyPubSub-3.1.1b1/setup.py	2010-05-05 15:08:32.000000000 +0200
++++ PyPubSub-3.1.1b1_patched/setup.py	2011-02-16 17:52:05.619240210 +0100
+@@ -1,12 +1,6 @@
+ #from distutils.core import setup
+-import ez_setup
+-ez_setup.use_setuptools()
+-
+ from setuptools import setup, find_packages
+ 
+-# use the module docs as the long description: 
+-longDesc = file('cheese.txt', 'r').read()
+-
+ packages = find_packages('src')
+ #print packages
+ 
+@@ -33,7 +27,6 @@
+         'Topic :: Software Development :: Libraries :: Application Frameworks',
+         'Topic :: Software Development :: Libraries :: Python Modules',
+     ],
+-    long_description = longDesc
+ )
+ 
+ 
