@@ -23,12 +23,12 @@ FILES_${PN} = "\
 	${bindir}/* \
 	${site_packages}/*.egg-info \
 	${site_packages}/*.pth \
-	${site_packages}/supervisor/*.py* \
+	${site_packages}/supervisor/*.pyo \
 	${site_packages}/supervisor/*.txt \
 	${site_packages}/supervisor/ui \
-	${site_packages}/supervisor/medusa/*.py* \
+	${site_packages}/supervisor/medusa/*.pyo \
 	${site_packages}/supervisor/medusa/*.txt \
-	${site_packages}/supervisor/medusa/thread/*.py*"
+	${site_packages}/supervisor/medusa/thread/*.pyo"
 
 do_install_prepend() {
 	install -d ${D}${sysconfdir}/init.d
