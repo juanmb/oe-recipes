@@ -12,7 +12,10 @@ S = "${WORKDIR}/supervisor-${PV}"
 
 inherit setuptools
 
-RDEPENDS_${PN} = "python-setuptools python-misc python-html python-unixadmin python-meld3"
+RDEPENDS_${PN} = "\
+	python-setuptools python-misc python-html python-unixadmin python-meld3 \
+	python-xmlrpc python-resource"
+		
 
 PACKAGES = "${PN}"
 

@@ -4,6 +4,7 @@ SECTION = "devel/python"
 HOMEPAGE = "http://www.gevent.org"
 LICENSE = "MIT"
 DEPENDS = "libevent"
+RDEPENDS = "python-pprint python-greenlet"
 PR = "r1"
 
 SRC_URI = "http://pypi.python.org/packages/source/g/gevent/gevent-${PV}.tar.gz"

@@ -3,7 +3,7 @@ DESCRIPTION = "A general purpose Python data validator"
 SECTION = "devel/python"
 HOMEPAGE = "https://pypi.python.org/pypi/validictory"
 LICENSE = "MIT"
-DEPENDS = "python-core"
+RDEPENDS = "python-core python-numbers"
 PR = "r1"
 
 SRC_URI = "https://github.com/juanmb/validictory/archive/master.zip"
