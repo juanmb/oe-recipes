@@ -3,7 +3,7 @@ DESCRIPTION = "In-process task scheduler with Cron-like capabilities"
 SECTION = "devel/python"
 HOMEPAGE = "http://pypi.python.org/pypi/APScheduler/"
 LICENSE = "MIT"
-DEPENDS = "python-core"
+RDEPENDS_${PN} = "python-core"
 PR = "r1"
 
 SRC_URI = "https://pypi.python.org/packages/source/A/APScheduler/APScheduler-${PV}.tar.gz"

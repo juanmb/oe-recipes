@@ -6,7 +6,8 @@ LICENSE = "BSD"
 PR = "r0"
 
 SRC_URI = "http://nginx.org/download/nginx-${PV}.tar.gz \
-           file://allow-cross.patch"
+           file://allow-cross.patch \
+	   file://nginx.init file://users file://nginx.conf"
 
 DEPENDS = "libpcre"
 
@@ -17,9 +18,9 @@ do_configure() {
     --sbin-path=${sbindir}/nginx \
     --pid-path=${localstatedir}/run/nginx.pid \
     --lock-path=${localstatedir}/lock/nginx.lock \
-    --error-log-path=${localstatedir}/log/nginx/error \
+    --error-log-path=${localstatedir}/log/nginx_error \
     --conf-path=${sysconfdir}/nginx/nginx.conf \
-    --http-log-path=${localstatedir}/log/nginx/access \
+    --http-log-path=${localstatedir}/log/nginx_access \
     --http-client-body-temp-path=${localstatedir}/lib/nginx/client_body_temp \
     --http-proxy-temp-path=${localstatedir}/lib/nginx/proxy_temp \
     --http-fastcgi-temp-path=${localstatedir}/lib/nginx/fastcgi_temp \
@@ -28,9 +29,22 @@ do_configure() {
 }
 
 do_install() {
+    install -d ${D}${sysconfdir}/init.d
     install -d ${D}${localstatedir}/lib/nginx
-    install -d ${D}${localstatedir}/log/nginx
+    install -d ${D}${localstatedir}/log
+    install -d ${D}${sysconfdir}/nginx
+    install -m 0644 ${WORKDIR}/nginx.conf ${D}${sysconfdir}/nginx/nginx.conf
+    install -m 0644 ${WORKDIR}/users ${D}${sysconfdir}/nginx/users
+    install -m 0755 ${WORKDIR}/nginx.init ${D}${sysconfdir}/init.d/nginx
     oe_runmake DESTDIR=${D} install
+}
+
+pkg_postinst() {
+    update-rc.d nginx defaults 94
+}
+
+pkg_postrm() {
+    update-rc.d nginx remove
 }
 
 SRC_URI[md5sum] = "ded252047393c79a31b0862e9166a065"

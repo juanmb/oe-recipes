@@ -3,7 +3,7 @@ DESCRIPTION = "Websocket library for the gevent networking library"
 SECTION = "devel/python"
 HOMEPAGE = "http://bitbucket.org/Jeffrey/gevent-websocket/src"
 LICENSE = "BSD"
-RDEPENDS = "python-gevent"
+RDEPENDS_${PN} = "python-gevent"
 PR = "r1"
 
 SRC_URI = "https://pypi.python.org/packages/source/g/gevent-websocket/gevent-websocket-${PV}.tar.gz"
