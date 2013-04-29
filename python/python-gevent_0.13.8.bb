@@ -15,6 +15,8 @@ S = "${WORKDIR}/gevent-${PV}"
 
 inherit setuptools
 
+FILES_${PN}-dbg += "${libdir}/python2.*/site-packages/gevent/.debug"
+
 SRC_URI[md5sum] = "ca9dcaa7880762d8ebbc266b11252960"
 SRC_URI[sha256sum] = "54b8d26300ce408c0916a3e63ef6cd3e6aca76230833558deb7de15196ed955e"
 

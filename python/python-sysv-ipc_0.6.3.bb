@@ -9,5 +9,7 @@ S = "${WORKDIR}/sysv_ipc-${PV}"
 
 inherit distutils
 
+FILES_${PN}-dbg += "${libdir}/python2.*/site-packages/.debug"
+
 SRC_URI[md5sum] = "622b32edd53a6a49bf363d88be1fd9a0"
 SRC_URI[sha256sum] = "7a2938d754efbd7d01c06731462934e96801c1ac3fb3193c01a75f3ecd6f939d"

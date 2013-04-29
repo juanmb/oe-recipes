@@ -11,5 +11,7 @@ S = "${WORKDIR}/ujson-${PV}"
 
 inherit distutils
 
+FILES_${PN}-dbg += "${libdir}/python2.*/site-packages/.debug"
+
 SRC_URI[md5sum] = "e55986d2ebdaa0380e2f61e56d7cc9d8"
 SRC_URI[sha256sum] = "6fc94fcbf6a6f56fd0814d1eadbfccf35e4215eeba647333ce59dcee03b589f3"
