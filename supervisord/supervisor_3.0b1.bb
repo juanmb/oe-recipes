@@ -15,6 +15,7 @@ inherit setuptools
 RDEPENDS_${PN} = "\
 	python-setuptools \
 	python-misc \
+	python-fcntl \
 	python-html \
 	python-unixadmin \
 	python-meld3 \
