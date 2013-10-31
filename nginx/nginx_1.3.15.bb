@@ -3,12 +3,11 @@ HOMEPAGE = "http://wiki.nginx.org"
 SECTION = "net"
 PRIORITY = "optional"
 LICENSE = "BSD"
-PR = "r1"
+PR = "r2"
 
 SRC_URI = "http://nginx.org/download/nginx-${PV}.tar.gz \
-           file://allow-cross.patch \
-	   file://nginx.init file://users file://nginx.conf \
-           file://flashpolicy.xml"
+           file://allow-cross.patch file://nginx.init file://nginx.conf \
+           file://mime.types"
 
 DEPENDS = "libpcre"
 
@@ -33,12 +32,10 @@ do_install() {
     install -d ${D}${sysconfdir}/init.d
     install -d ${D}${localstatedir}/lib/nginx
     install -d ${D}${localstatedir}/log
-    install -d ${D}${localstatedir}/www/crossdomain
-    install -d ${D}${sysconfdir}/nginx
+    install -d ${D}${sysconfdir}/nginx/conf.d
     install -m 0644 ${WORKDIR}/nginx.conf ${D}${sysconfdir}/nginx/nginx.conf
-    install -m 0644 ${WORKDIR}/users ${D}${sysconfdir}/nginx/users
+    install -m 0644 ${WORKDIR}/mime.types ${D}${sysconfdir}/nginx/mime.types
     install -m 0755 ${WORKDIR}/nginx.init ${D}${sysconfdir}/init.d/nginx
-    install -m 0755 ${WORKDIR}/flashpolicy.xml ${D}${localstatedir}/www/crossdomain/flashpolicy.xml
     oe_runmake DESTDIR=${D} install
 }
 
